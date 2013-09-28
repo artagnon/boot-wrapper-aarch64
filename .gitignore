@@ -2,3 +2,4 @@ linux-system.axf
 Image
 model.lds
 boot.o
+fdt.dtb
