@@ -37,19 +37,12 @@ FDT_OFFSET	:= 0x08000000
 
 BOOTARGS_COMMON	:= "console=ttyAMA0 earlyprintk=pl011,0x1c090000 $(BOOTARGS_EXTRA)"
 
-ifneq (,$(findstring USE_INITRD,$(CPPFLAGS)))
 BOOTARGS	:= "$(BOOTARGS_COMMON)"
 CHOSEN_NODE	:= chosen {						\
 			bootargs = \"$(BOOTARGS)\";			\
 			linux,initrd-start = <$(FILESYSTEM_START)>;	\
 			linux,initrd-end = <$(FILESYSTEM_END)>;		\
 		   };
-else
-BOOTARGS	:= "root=/dev/nfs nfsroot=\<serverip\>:\<rootfs\>,tcp rw ip=dhcp $(BOOTARGS_COMMON)"
-CHOSEN_NODE	:= chosen {						\
-			bootargs = \"$(BOOTARGS)\";			\
-		   };
-endif
 
 CROSS_COMPILE	?= aarch64-linux-gnu-
 CC		:= $(CROSS_COMPILE)gcc
