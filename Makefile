@@ -35,9 +35,7 @@ FDT_INCL_REGEX	:= \(/include/[[:space:]]*"\)\([^"]\+\)\(".*\)
 FDT_DEPS	:= $(FDT_SRC) $(addprefix $(dir $(FDT_SRC)), $(shell sed -ne 'sq$(strip $(FDT_INCL_REGEX)q\2q p' < $(FDT_SRC))))
 FDT_OFFSET	:= 0x08000000
 
-BOOTARGS_COMMON	:= "console=ttyAMA0 earlyprintk=pl011,0x1c090000 $(BOOTARGS_EXTRA)"
-
-BOOTARGS	:= "$(BOOTARGS_COMMON)"
+BOOTARGS	:= "console=ttyAMA0 mem=2048M devtmpfs.mount=1 earlyprintk rw init=/bin/sh root=/dev/vda"
 CHOSEN_NODE	:= chosen {						\
 			bootargs = \"$(BOOTARGS)\";			\
 			linux,initrd-start = <$(FILESYSTEM_START)>;	\
