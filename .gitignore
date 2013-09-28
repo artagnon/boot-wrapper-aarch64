@@ -3,3 +3,4 @@ Image
 model.lds
 boot.o
 fdt.dtb
+raring-arm64-rootfs

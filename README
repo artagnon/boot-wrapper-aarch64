@@ -10,3 +10,5 @@ Alternatively, you may specify the paths for dtc and the main dts file
 on the make command-line. For example:
 
 make DTC=<path-to-dtc> FDT_SRC=<linux-src-dir>/arch/arm64/boot/dts/vexpress-v2p-aarch64.dtsi
+
+raring-arm64-rootfs is available from http://people.debian.org/~wookey/bootstrap/rootfs/
