@@ -1,10 +1,9 @@
-Linux boot wrapper with FDT support
-===================================
+# Linux boot wrapper with FDT support
 
 The following files need to be linked into the boot wrapper directory:
 
-dtc			 - point to <linux-build-dir>/scripts/dtc/dtc
-foundation-v8.dts        - point to <linux-src-dir>/arch/arm64/boot/dts/foundation-v8.dts
+- dtc: symlink to to <linux-build-dir>/scripts/dtc/dtc
+- foundation-v8.dts: symlink to <linux-src-dir>/arch/arm64/boot/dts/foundation-v8.dts
 
 Alternatively, you may specify the paths for dtc and the main dts file
 on the make command-line. For example:
