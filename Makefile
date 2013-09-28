@@ -70,10 +70,6 @@ boot.o: $(BOOTLOADER) Makefile
 model.lds: $(LD_SCRIPT) Makefile
 	$(CC) $(CPPFLAGS) -DPHYS_OFFSET=$(PHYS_OFFSET) -DMBOX_OFFSET=$(MBOX_OFFSET) -DKERNEL_OFFSET=$(KERNEL_OFFSET) -DFDT_OFFSET=$(FDT_OFFSET) -DFS_OFFSET=$(FS_OFFSET) -DKERNEL=$(KERNEL) -DFILESYSTEM=$(FILESYSTEM) -E -P -C -o $@ $<
 
-ifeq ($(DTC),)
-	$(error No dtc found! You can git clone from git://git.jdl.com/software/dtc.git)
-endif
-
 fdt.dtb: $(FDT_DEPS) Makefile
 	( echo "/include/ \"$(FDT_SRC)\"" ; echo "/ { $(CHOSEN_NODE) };" ) | $(DTC) -O dtb -o $@ -
 
