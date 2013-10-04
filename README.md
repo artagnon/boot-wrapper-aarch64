@@ -23,14 +23,17 @@ cross-compiler toolchain) and symlink the following files:
   model, which can be downloaded from the website: [ARM
   website](https://silver.arm.com/browse/FM00A)
 
-- raring-arm64-rootfs is available from
+- raring-rootfs is available from
   http://people.debian.org/~wookey/bootstrap/rootfs/
+
+- linaro-rootfs is available from
+  http://releases.linaro.org/13.05/openembedded/aarch64
 
 Once the make target linux-system.axf is built from the kernel image,
 run the emulator like:
 
-    $ ./Foundation_v8 --image linux-system.axf --cores 4 --block-device raring-arm64-rootfs
+    $ ./Foundation_v8 --image linux-system.axf --cores 4 --block-device linaro-rootfs
 
 Notice the kernel parameter `root=/dev/vda` in the Makefile: the
-raring-arm64-rootfs supplied on command-line is exposed as a virtio
+linaro-rootfs supplied on command-line is exposed as a virtio
 block device.
