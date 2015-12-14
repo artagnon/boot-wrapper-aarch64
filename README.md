@@ -27,7 +27,7 @@ cross-compiler toolchain) and symlink the following files:
   http://people.debian.org/~wookey/bootstrap/rootfs/
 
 - linaro-rootfs is available from
-  http://releases.linaro.org/13.05/openembedded/aarch64
+  http://releases.linaro.org/15.06/openembedded/aarch64/
 
 Once the make target linux-system.axf is built from the kernel image,
 run the emulator like:
